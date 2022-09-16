@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "VRRsousse",
+    "slug": "VRRsousse",
+    "sdkVersion": "45.0.0",
+    "privacy": "public",
+    "android": {
+      "package": "com.jihed1803.VRRsousse"
+    }
+  }
+}
