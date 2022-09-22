@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
     text_header: {
       color: '#fff',
       fontWeight: 'bold',
+      marginTop: Platform.OS === 'ios' ? 0 : 39,
       fontSize: 25
   },
     text_footer: {

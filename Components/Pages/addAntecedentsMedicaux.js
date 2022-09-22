@@ -57,7 +57,7 @@ const AddAntecendentsMedicaux = (props) => {
 
 
   return (
-<LinearGradient colors={['#d7dbdd', '#abebc6','#d7dbdd']} style={styles.body}>
+<LinearGradient colors={['#d7dbdd', '#d7dbdd']} style={styles.body}>
     <ScrollView>
 
 

@@ -15,7 +15,9 @@ import * as actions from "../../../Actions/medicalService";
 import 'localstorage-polyfill';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import RadioGroup from 'react-native-radio-buttons-group';
-import FormInput from '../../Form/FormInput';
+import FormInput from "../../Form/FormInput";
+import FormInput4 from "../../Form/FormInput4";
+
 import DateTimePicker from '@react-native-community/datetimepicker';
 import FormButton from '../../Form/FormButton';
 import { medicalService } from '../../../Reducers/medicalService';
@@ -534,7 +536,7 @@ Date d'arrivée en Tunisie? </Text>
           
         )}
       </View>
-            <FormInput placeholder="Identifiant en Tunisie" type="number-pad" onChangeText={handleIdTun} />
+            <FormInput4 placeholder="Identifiant en Tunisie" type="number-pad" min="0" max="100" onChangeText={handleIdTun} />
           </View>)}
 
           <TouchableOpacity onPress={handleAutresChange}>

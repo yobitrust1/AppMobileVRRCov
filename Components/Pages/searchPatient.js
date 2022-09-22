@@ -4,6 +4,7 @@ import * as actions from "../../Actions/medicalService";
 import { connect } from "react-redux";
 import { View, Text, StyleSheet } from 'react-native';
 import FormInput from "../Form/FormInput";
+import FormInput4 from "../Form/FormInput4";
 import FormButton from "../Form/FormButton";
 import 'localstorage-polyfill';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -38,9 +39,9 @@ const SearchPatient = (props) => {
         <Text style={tailwind('text-gray-700 font-bold py-2 text-xl')}>Rechercher un patient</Text>
         <View style={tailwind('py-8 items-center')}>
 
-          <FormInput
+          <FormInput4
             placeholder="Search...Type CIN"
-            type="number-pad"
+            type="number-pad" min="0" max="1000000000"
             onChangeText={handleSearchChange}
             maxLength={Number("8")}
           />
@@ -56,7 +57,6 @@ const SearchPatient = (props) => {
                   <Text style={tailwind('text-gray-700 font-bold py-2 text-xl')}>Nom:{props.patientList["generalInformation"]["nom"]||""}</Text>
                   <Text style={tailwind('text-gray-700 font-bold py-2 text-xl')}>prenom:{props.patientList["generalInformation"]["prenom"]||""}</Text>
                     <FormButton title="Details" onPress={() => { props.navigation.navigate("PatientDetails") }} />
-                    <FormButton title="Information" onPress={() => { props.navigation.navigate("Information") }} />
                     <FormButton title="Dashbord" onPress={() => { props.navigation.navigate("Json1") }} />
                   </View>
 

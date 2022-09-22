@@ -15,6 +15,8 @@ import React, { useState, useEffect } from 'react';
 import tailwind from 'tailwind-rn';
 import FormButton from "../../Form/FormButton";
 import FormInput from "../../Form/FormInput";
+import FormInput4 from '../../Form/FormInput4';
+
 import * as actions from "../../../Actions/medicalService";
 import { connect } from "react-redux";
 //import 'localstorage-polyfill';
@@ -179,7 +181,7 @@ const ExamenRadioParaCli1 = (props) => {
             style={tailwind('')}
             onPress={handleResultChange}
           />
-          <FormInput placeholder="Nb de quadrants atteints" type="number-pad" onChangeText={setNbQua} />
+          <FormInput4 placeholder="Nb de quadrants atteints" type="number-pad" min="0" max="100" onChangeText={setNbQua} />
         </View>
       }
       {
@@ -221,7 +223,7 @@ const ExamenRadioParaCli1 = (props) => {
 
           </View>
           <View style={tailwind("items-center")}>
-            <FormInput placeholder="Espace Qt" type="decimal-pad" onChangeText={setEspaceQT} />
+            <FormInput4 placeholder="Espace Qt" type="decimal-pad" min="0" max="100" onChangeText={setEspaceQT} />
 
           </View>
 

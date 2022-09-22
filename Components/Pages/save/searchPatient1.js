@@ -16,6 +16,8 @@ import * as actions from "../../../Actions/medicalService";
 import { connect } from "react-redux";
 
 import FormInput from "../../Form/FormInput";
+import FormInput4 from "../../Form/FormInput4";
+
 import FormButton from "../../Form/FormButton";
 
 import { Table, TableWrapper, Cols } from 'react-native-table-component';
@@ -57,9 +59,9 @@ const SearchPatient1 = (props) => {
       <View style={tailwind(' items-center ')} >
         <View style={tailwind('py-8 items-center')}>
 
-          <FormInput
+          <FormInput4
             placeholder="Search...Type CIN"
-            type="number-pad"
+            type="number-pad" min="0" max="1000000000"
             onChangeText={handleSearchChange}
             maxLength={Number("8")}
           />

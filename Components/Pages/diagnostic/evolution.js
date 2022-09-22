@@ -20,7 +20,9 @@ import { connect } from "react-redux";
 import RadioGroup from 'react-native-radio-buttons-group';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 //import DatePicker from 'react-native-datepicker'
-import FormInput from '../../Form/FormInput';
+import FormInput from "../../Form/FormInput";
+import FormInput4 from "../../Form/FormInput4";
+
 import FormInput2 from '../../Form/FormInput2';
 import DatePicker from 'react-native-datepicker'
 import {LinearGradient} from 'expo-linear-gradient';
@@ -275,7 +277,7 @@ const Evolution1 = (props) => {
             />
             <Text style={tailwind("text-red-500 font-bold pt-4 text-center")}>{validation}</Text>
             {(type === "Température" || type === "SaO2" || type === "Besoin en O2" || type === "TA" || type === "FR" || type === "FC" || type === "Score de glasgow") &&
-              <FormInput placeholder={type} type="decimal-pad" onChangeText={setValue} />
+              <FormInput4 placeholder={type} type="decimal-pad" min="0" max="100" onChangeText={setValue} />
             }
             {
               (type === "Signes de lutte" || type === "Froideur" || type === "Marbrures" || type === "Angoisse/Agitation") &&
@@ -395,9 +397,9 @@ const Evolution1 = (props) => {
                 onDateChange={(date) => { setDateF(date) }}
               />
 
-              <FormInput placeholder={"SAPS 2"} onChangeText={setSaps2} type="decimal-pad" maxLength={Number("8")} />
-              <FormInput placeholder={"APACHE 2"} onChangeText={setApache2} type="decimal-pad" maxLength={Number("8")} />
-              <FormInput placeholder={"SOFA"} onChangeText={setSofa} type="decimal-pad" maxLength={Number("8")} />
+              <FormInput4 placeholder={"SAPS 2"} onChangeText={setSaps2} type="decimal-pad" min="0" max="100" maxLength={Number("8")} />
+              <FormInput4 placeholder={"APACHE 2"} onChangeText={setApache2} type="decimal-pad" min="0" max="100" maxLength={Number("8")} />
+              <FormInput4 placeholder={"SOFA"} onChangeText={setSofa} type="decimal-pad" min="0" max="100" maxLength={Number("8")} />
               <FormButton title="Enregistrer" onPress={handleSubmit} />
             </View>
 
