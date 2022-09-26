@@ -227,10 +227,7 @@ const ExamBio1 = (props) => {
             label: "Ionogramme",
             color: '#9035db',
           },
-          {
-            label: "Autres",
-            color: '#9035db',
-          },
+         
 
         ]}
           //flexDirection='row'
