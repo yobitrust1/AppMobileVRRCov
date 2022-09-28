@@ -1,34 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import tailwind from 'tailwind-rn';
-import FormButton from "../Form/FormButton";
-import * as actions from "../../Actions/medicalService";
+import * as actions from "../../../Actions/medicalService";
 import { connect } from "react-redux";
 import { View, Text, StyleSheet } from 'react-native';
+import FormInput from "../../Form/FormInput";
+import FormInput4 from "../../Form/FormInput4";
+import FormButton from "../../Form/FormButton";
 import 'localstorage-polyfill';
 import { ScrollView } from 'react-native-gesture-handler';
 import {LinearGradient} from 'expo-linear-gradient';
-const AntecendentsMedicaux = (props) => {
 
-
-
+const SearchPatient = (props) => {
+ 
   return (
-    <LinearGradient colors={['#d7dbdd', '#9035db','#d7dbdd']} style={styles.body}>
+<LinearGradient colors={['#d7dbdd', '#9035db','#d7dbdd']} style={styles.body}>
     <ScrollView>
       <View style={styles.card}>
       <View style={tailwind(' items-center ')} >
-        <Text style={tailwind('text-gray-700 font-bold py-2 text-xl')}>Antécédents medicaux:</Text>
+        <Text style={tailwind('text-gray-700 font-bold py-2 text-xl')}>Examen biologique:</Text>
       
 
         <View style={styles.row}>
-        <FormButton title="Ajouter un antécédent medical" onPress={() => { props.navigation.navigate("AddAntecendentsMedicaux") }} />
-          <FormButton title="Liste des antécédents medicaux" onPress={() => props.navigation.navigate("AntecedentsList")} />
+        <FormButton title="Ajouter un Examen biologique" onPress={() => { props.navigation.navigate("ExamBio") }} />
+          <FormButton title="Liste des Examens biologiques" onPress={() => props.navigation.navigate("examBioList")} />
+
         </View>
-        <FormButton title="Retour" onPress={() => { props.navigation.navigate("PatientDetails") }} />
+        <FormButton title="Retour" onPress={() => { props.navigation.navigate("DiagnosticDetails") }} />
         </View>
       </View>
     </ScrollView>
     </LinearGradient>
   );
+};
+
+const mapStateToProps = (state) => ({
+});
+const mapActionToProps = {
+
 };
 
 const styles = StyleSheet.create({
@@ -61,14 +69,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#2193b0',
   },
+  
 });
-const mapStateToProps = (state) => ({
 
-  patientList: state.medicalService.patientList,
-});
-const mapActionToProps = {
-  getAllAntecedentsMedicaux: actions.getAllAntecedentsMedicaux,
-  removeAntecedentMedical: actions.removeAntecedentMedical
-};
-
-export default connect(mapStateToProps, mapActionToProps)(AntecendentsMedicaux);
+export default connect(mapStateToProps, mapActionToProps)(SearchPatient);

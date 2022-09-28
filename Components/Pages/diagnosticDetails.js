@@ -13,19 +13,19 @@ const DiagnosticDetails = (props) => {
 
 
     return (
-<LinearGradient colors={['#d7dbdd', '#abebc6','#d7dbdd']} style={styles.body}>
+<LinearGradient colors={['#d7dbdd', '#9035db','#d7dbdd']} style={styles.body}>
         <ScrollView>
 
 
             <View style={tailwind(' items-center ')} >
                 <Text style={tailwind('text-gray-700 font-bold py-2 text-xl text-center')}>Patient:{props.patientList["generalInformation"]["nom"] + " " + props.patientList["generalInformation"]["prenom"]}</Text>
                 <View style={tailwind('py-8')}>
-                    <FormButton title="Confirmation diagnostique" onPress={() => { props.navigation.navigate("ConfirmationDiag") }} />
+                    <FormButton title="Confirmation diagnostique" onPress={() => { props.navigation.navigate("confirmationDiagOpen") }} />
                     <FormButton title="Admission" onPress={() => { props.navigation.navigate("Admission") }} />
                     <FormButton title="Caractéristiques cliniques" onPress={() => { props.navigation.navigate("CaracCliniques") }} />
                     <FormButton title="Examens cliniques" onPress={() => { props.navigation.navigate("ExamenCliniques") }} />
-                    <FormButton title="Examens radiologiques et para-cliniques" onPress={() => props.navigation.navigate("ExamenRadioParaCli")} />
-                    <FormButton title="Examens biologiques" onPress={() => props.navigation.navigate("ExamBio")} />
+                    <FormButton title="Examens radiologiques et para-cliniques" onPress={() => props.navigation.navigate("examenRadioParaCliOpen")} />
+                    <FormButton title="Examens biologiques" onPress={() => props.navigation.navigate("examBioOpen")} />
                     <FormButton title="Traitement" onPress={()=>props.navigation.navigate("Traitement")}/>
                     <FormButton title="Evolution"  onPress={()=>props.navigation.navigate("Evolution")}/>
                     <FormButton title="Evaluation finale" onPress={() => props.navigation.navigate("EvaluationFinale")} />

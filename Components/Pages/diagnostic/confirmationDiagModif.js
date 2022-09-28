@@ -24,10 +24,10 @@ import {LinearGradient} from 'expo-linear-gradient';
 const ConfirmationDiag1 = (props) => {
   
   const { colors } = useTheme();
-  const [test, setTest] = useState("Pcr")
-  const [datePr, setDatePr] = useState(new Date())
-  const [type, setType] = useState("Nasopharyngé")
-  const [resultat, setResultat] = useState("Positif")
+  const [test, setTest] = useState(localStorage.getItem("type"))
+  const [datePr, setDatePr] = useState(localStorage.getItem("datePr"))
+  const [type, setType] = useState("")
+  const [resultat, setResultat] = useState("")
   const [datePicker, setDatePicker] = useState(false);
   var handleSubmit = (e) => {
     e.preventDefault();
@@ -37,7 +37,7 @@ const ConfirmationDiag1 = (props) => {
       result: resultat,
       type: test
     }
-    //console.log(values)
+    console.log(values)
     props.addConfDiag(props.patientList["cin"], values)
     props.navigation.navigate("DiagnosticDetails")
   }
@@ -91,7 +91,7 @@ const ConfirmationDiag1 = (props) => {
   return (
 <ScrollView  >
       <View style={styles.container}>
-          <StatusBar backgroundColor='#4c1d95' barStyle="light-content"/>
+          <StatusBar backgroundColor='#9035db' barStyle="light-content"/>
         <View style={styles.header}>
             <Text style={styles.text_header}>Confirmation diagnostique</Text>
         </View>
@@ -107,75 +107,32 @@ const ConfirmationDiag1 = (props) => {
 
 
 
-      <Text style={tailwind(" text-gray-700 text-center pt-8 pb-2")}>Type de confirmation ?</Text>
-      <RadioGroup radioButtons={[
-        {
-          label: 'PCR',
-          color: '#9035db',
-
-        },
-        {
-          label: 'Test rapide AC',
-          color: '#9035db',
-        },
-        {
-          label: 'Test rapide AG',
-          color: '#9035db',
-        },
-        {
-          label: 'Sérologie',
-          color: '#9035db',
-        },
-
-      ]}
-        //flexDirection='row'
-        style={tailwind('')}
-        onPress={handleTestChange}
-      />
+      
 
       {test === "Pcr" && <View style={tailwind("items-center py-6")}>
       <View style={styles.row}>
 
-<Text style={tailwind('text-gray-700 py-2')}>
-  Date de prise ? </Text>
-{datePicker && (
-  <DateTimePicker
-    value={datePr}
-    mode={'date'}
-    minimumDate={new Date(1950, 0, 1)}
-    maximumDate={new Date()}
-    display={Platform.OS === 'ios' ? 'spinner' : 'default'}
-    is24Hour={true}
-    onChange={onDateSelected}
-    style={styles.datePicker}
-  />
-)}
-{!datePicker && (
-  <View >
-    <Button title={(datePr !== undefined && datePr.toDateString()) || "Show Date Picker"} color="#9035db" onPress={showDatePicker} />
-  </View>
-  
-)}
+
 </View>
      
         <Text style={tailwind(" text-gray-700 text-center pt-8 pb-2")}>Type ?</Text>
         <RadioGroup radioButtons={[
           {
             label: 'Nasopharyngé',
-            color: '#9035db',
+            color: '#51d1c5',
 
           },
           {
             label: 'Aspiration trachéale',
-            color: '#9035db',
+            color: '#51d1c5',
           },
           {
             label: 'Sanguin',
-            color: '#9035db',
+            color: '#51d1c5',
           },
           {
             label: 'Selle ou pvt rectal',
-            color: '#9035db',
+            color: '#51d1c5',
           },
 
         ]}
@@ -188,16 +145,16 @@ const ConfirmationDiag1 = (props) => {
         <RadioGroup radioButtons={[
           {
             label: 'Positif',
-            color: '#9035db',
+            color: '#51d1c5',
 
           },
           {
             label: 'Negatif',
-            color: '#9035db',
+            color: '#51d1c5',
           },
           {
             label: 'Douteux',
-            color: '#9035db',
+            color: '#51d1c5',
           },
 
 
@@ -228,7 +185,7 @@ const ConfirmationDiag1 = (props) => {
 )}
 {!datePicker && (
   <View >
-    <Button title={(datePr !== undefined && datePr.toDateString()) || "Show Date Picker"} color="#9035db" onPress={showDatePicker} />
+    <Button title={(datePr !== undefined && datePr.toDateString()) || "Show Date Picker"} color="green" onPress={showDatePicker} />
   </View>
   
 )}
@@ -237,12 +194,12 @@ const ConfirmationDiag1 = (props) => {
         <RadioGroup radioButtons={[
           {
             label: 'Positif',
-            color: '#9035db',
+            color: '#51d1c5',
 
           },
           {
             label: 'Negatif',
-            color: '#9035db',
+            color: '#51d1c5',
           },
 
 
@@ -274,7 +231,7 @@ const ConfirmationDiag1 = (props) => {
 )}
 {!datePicker && (
   <View >
-    <Button title={(datePr !== undefined && datePr.toDateString()) || "Show Date Picker"} color="#9035db" onPress={showDatePicker} />
+    <Button title={(datePr !== undefined && datePr.toDateString()) || "Show Date Picker"} color="green" onPress={showDatePicker} />
   </View>
   
 )}
@@ -283,12 +240,12 @@ const ConfirmationDiag1 = (props) => {
         <RadioGroup radioButtons={[
           {
             label: 'Positif',
-            color: '#9035db',
+            color: '#51d1c5',
 
           },
           {
             label: 'Negatif',
-            color: '#9035db',
+            color: '#51d1c5',
           },
 
 
@@ -319,7 +276,7 @@ const ConfirmationDiag1 = (props) => {
 )}
 {!datePicker && (
   <View >
-    <Button title={(datePr !== undefined && datePr.toDateString()) || "Show Date Picker"} color="#9035db" onPress={showDatePicker} />
+    <Button title={(datePr !== undefined && datePr.toDateString()) || "Show Date Picker"} color="green" onPress={showDatePicker} />
   </View>
   
 )}
@@ -328,12 +285,12 @@ const ConfirmationDiag1 = (props) => {
         <RadioGroup radioButtons={[
           {
             label: 'Positif',
-            color: '#9035db',
+            color: '#51d1c5',
 
           },
           {
             label: 'Negatif',
-            color: '#9035db',
+            color: '#51d1c5',
           },
 
 
@@ -369,7 +326,7 @@ const styles = StyleSheet.create({
   },
     container: {
       flex: 1, 
-      backgroundColor: '#4c1d95'
+      backgroundColor: '#9035db'
     },
     header: {
         flex: 1,

@@ -61,25 +61,27 @@ const AntecedentsList = (props) => {
 
   return (
 <LinearGradient style={styles.BigContainer} colors={['#d7dbdd', '#9035db','#d7dbdd']} >
-    <View style={styles.ExtraSpaceUp}>
+<ScrollView>
+      <View style={styles.card}>
+        <View style={styles.ExtraSpaceUp}>
     </View>
     <View >
       <View style={tailwind(' items-center ')} >
-        <Text style={styles.headerText}>Antécedents Médicaux:{props.patientList["generalInformation"]["nom"] + " " + props.patientList["generalInformation"]["prenom"]}</Text>
+        <Text style={tailwind('text-gray-700 font-bold py-2 text-xl text-center')}>Antécedents Médicaux:{props.patientList["generalInformation"]["nom"] + " " + props.patientList["generalInformation"]["prenom"]}</Text>
 
         <View style={tailwind("py-8")}>
           {props.antecedents.map((item, index) => (<View key={item} style={tailwind("py-2")}>
 
-            <Text style={tailwind("font-bold text-white")} >{list[item]}</Text>
+            <Text style={tailwind("font-bold text-gray-700")} >{list[item]}</Text>
 
             <TouchableOpacity onPress={() => handleModifier(item)}>
-              <Text style={tailwind('text-orange-400 px-8')}>
+              <Text style={tailwind('text-teal-500 px-8')}>
                 Modifier ?
     </Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={() => { handleRemove(item) }}>
-              <Text style={tailwind('text-orange-400 px-8')}>
+              <Text style={tailwind('text-teal-500 px-8')}>
                 Supprimer ?
     </Text>
             </TouchableOpacity>
@@ -104,7 +106,9 @@ const AntecedentsList = (props) => {
       </View>
       <View style={styles.ExtraSpaceDown}>
     </View>
-      </LinearGradient>
+    </View>
+    </ScrollView>
+     </LinearGradient>
   );
 };
 const styles = StyleSheet.create({
@@ -120,7 +124,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     //justifyContent:'center',
     alignContent:'center',
-    backgroundColor:'#9035db',
+    backgroundColor:'#fff',
     //width:'95%',
     borderRadius:15,
     marginRight:'4%',
@@ -128,26 +132,18 @@ const styles = StyleSheet.create({
   },
   ExtraSpaceDown:{
     flex:1,
-    
   },
   LeftBox:{
     flex:1,
     
-    backgroundColor:'#9035db',
+    backgroundColor:'#fff',
     marginRight:'2.5%',
     marginLeft:'10%',
     marginVertical:'5%',
 },
-headerText: {
-  fontSize: 30,
-  fontWeight: 'bold',
-  color: '#f7faf9',
-  textAlign: 'center',
-  marginTop: 35
-},
   RightBox:{
     flex:1,
-    backgroundColor:'#9035db',
+    backgroundColor:'#fff',
     marginLeft:'2.5%',
     marginRight:'7%',
     marginVertical:'5%',
@@ -190,9 +186,25 @@ headerText: {
     fontSize:18,
     color:"#696969"
   },
+  card:{
+    shadowColor: '#00000021',
+    shadowOffset: {
+      width: 0,
+      height: 6,
+    },
+    shadowOpacity: 0.37,
+    shadowRadius: 7.49,
+    elevation: 12,
 
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop:70,
+    backgroundColor:"white",
+    padding: 10,
+    flexDirection:'row',
+    borderRadius:30,
+  },
 });
-
 const mapStateToProps = (state) => ({
   patientList: state.medicalService.patientList,
   antecedents: state.medicalService.antecedentList,
