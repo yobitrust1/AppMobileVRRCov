@@ -59,9 +59,7 @@ const CaracCliniques1 = (props) => {
     const [test, setTest] = useState(false)
 
     var handleTemperatureChange = (text) => {
-        if (text < 32 || text > 43)
-            setTest(false)
-        else setTest(true)
+       
         setTemperature(text)
     }
     var handletypeT = (data) => {
